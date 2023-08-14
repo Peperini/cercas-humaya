@@ -13,7 +13,7 @@ Check out the live demo of the re-built website: WIP<!-- [Demo Link](https://you
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/JoseArmandoFelix/cercas-humaya.git`
+1. Clone the repository: `git clone https://github.com/peperini/cercas-humaya.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm start`
 
