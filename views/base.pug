@@ -4,31 +4,31 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-    title Cercas Humaya
+    title=meta.data.title
 
     meta(name="description" content="Cercas Humaya")
 
-    //-         link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
-    //-         link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
-    //-         link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
-    //-         link(rel="manifest" href="/site.webmanifest")
-    //-         link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
-    //-         meta(name="msapplication-TileColor" content="#da532c")
-    //-         meta(name="theme-color" content="#ffffff")
-    //-
-    //-         //- Twitter
-    //-
-    //-         meta(name="twitter:card" content="summary_large_image")
-    //-         meta(name="twitter:title" content=meta.data.title)
-    //-         meta(name="twitter:description" content=meta.data.description)
-    //-         meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
-    //-
-    //-         //- Open Graph general (Facebook, Pinterest & Google+)
-    //-
-    //-         meta(name="og:title" content=meta.data.title)
-    //-         meta(name="og:description" content=meta.data.description)
-    //-         meta(name="og:image" content=meta.data.image ? meta.data.image.url : '')
-    //-         meta(name="og:type" content="website")
+    link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
+    link(rel="manifest" href="/site.webmanifest")
+    link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
+    meta(name="msapplication-TileColor" content="#da532c")
+    meta(name="theme-color" content="#ffffff")
+
+    //- Twitter
+
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:title" content=meta.data.title)
+    meta(name="twitter:description" content=meta.data.description)
+    meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
+
+    //- Open Graph general (Facebook, Pinterest & Google+)
+
+    meta(name="og:title" content=meta.data.title)
+    meta(name="og:description" content=meta.data.description)
+    meta(name="og:image" content=meta.data.image ? meta.data.image.url : '')
+    meta(name="og:type" content="website")
 
     link(rel="stylesheet" type="text/css" href="/main.css")
 
@@ -39,3 +39,30 @@ html(lang="en")
     include ./partials/navigation
     include ./partials/quoter-selectors
     include ./partials/quoter-end
+
+    .homepage
+      .homepage__wrapper
+        each section in homepage.data.body
+          if section.slice_type == 'hero'
+            section.homepage__hero
+              .homepage__hero__wrapper
+                .homepage__hero__cta
+                  h1.homepage__hero__title=section.primary.title
+                  button.home__hero__button Cotizar
+                .homepage__hero__gallery
+                  each media in section.items
+                    figure.homepage__hero__media
+                      img.homepage__hero__media__image(alt=media.image.alt src=media.image.url)
+
+          if section.slice_type == 'history'
+            section.homepage__history(id='about')
+              .homepage__history__wrapper
+                .homepage__history__story
+                  h3.homepage__history__title=section.primary.title
+                  p.homepage__history__copy!=PrismicH.asHTML(section.primary.copy).replace(/<p>/g, '<p data-animation="paragraph">')
+                .homepage__history__gallery
+                  each media in section.items
+                    figure.homepage__history__media
+                      img.homepage__history__media__image(alt=media.image.alt src=media.image.url)
+
+
