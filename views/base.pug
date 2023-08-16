@@ -52,8 +52,8 @@ html(lang="en")
 
                 .homepage__hero__gallery
                   each media in section.items
-                    figure.homepage__hero__media
-                      img.homepage__hero__media__image(alt=media.image.alt src=media.image.url)
+                    figure.homepage__hero__gallery__media
+                      img.homepage__hero__gallery__media__image(alt=media.image.alt src=media.image.url)
 
           if section.slice_type == 'history'
             section.homepage__history(id='about')
@@ -64,8 +64,8 @@ html(lang="en")
 
                 .homepage__history__gallery
                   each media in section.items
-                    figure.homepage__history__media
-                      img.homepage__history__media__image(alt=media.image.alt src=media.image.url)
+                    figure.homepage__history__gallery__media
+                      img.homepage__history__gallery__media__image(alt=media.image.alt src=media.image.url)
 
           if section.slice_type == 'services'
             section.homepage__services(id='services')

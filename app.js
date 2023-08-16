@@ -11,6 +11,12 @@ const app = express()
 const path = require('path')
 const port = 3000
 
+app.use(logger('dev'))
+app.use(errorHandler())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(methodOverride())
+
 const fetch = require('node-fetch')
 const Prismic = require('@prismicio/client')
 const PrismicH = require('@prismicio/helpers')
@@ -23,7 +29,6 @@ const initApi = (req) => {
     fetch,
   })
 }
-
 
 //Middleware to inject primic helper, ua-parser, and some utils
 app.use((req, res, next) => {
@@ -74,7 +79,7 @@ app.get('/', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
 
-  console.log(defaults.homepage.data)
+  console.log(defaults.quoter_end.data)
 
   res.render('base', { ...defaults })
 })

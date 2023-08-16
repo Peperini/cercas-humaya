@@ -1,2 +1,16 @@
 .quoter-end
-  p.quoter__title Quoter End
+  .quoter-end__wrapper
+    .quoter-end__gallery
+      each media in quoter_end.data.gallery
+        figure.quoter-end__gallery__media
+          img.quoter-end__gallery__media__image(alt=media.image.alt src=media.image.url)
+
+    .quoter-end__information
+      h1.quoter-end__information__title=quoter_end.data.title
+      p.quoter-end__information__text=quoter_end.data.copy
+      .quoter-end__information__finish
+        button.quoter-end__information__button Finalizar
+        a.quoter-end__information__finish__alert
+          svg.quoter-end__information__finish__alert-circle
+          p.quoter-end__information__finish__alert__text
+
