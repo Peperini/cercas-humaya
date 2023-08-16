@@ -49,6 +49,7 @@ html(lang="en")
                 .homepage__hero__cta
                   h1.homepage__hero__title=section.primary.title
                   button.home__hero__button Cotizar
+
                 .homepage__hero__gallery
                   each media in section.items
                     figure.homepage__hero__media
@@ -60,9 +61,59 @@ html(lang="en")
                 .homepage__history__story
                   h3.homepage__history__title=section.primary.title
                   p.homepage__history__copy!=PrismicH.asHTML(section.primary.copy).replace(/<p>/g, '<p data-animation="paragraph">')
+
                 .homepage__history__gallery
                   each media in section.items
                     figure.homepage__history__media
                       img.homepage__history__media__image(alt=media.image.alt src=media.image.url)
+
+          if section.slice_type == 'services'
+            section.homepage__services(id='services')
+              .homepage__services__wrapper
+                h3.homepage__services__subtitle=section.primary.title
+                .homepage__services__list
+                  each service in section.items
+                    h2.homepage__services__service=service.name
+
+          if section.slice_type == 'callout'
+            section.homepage__callout
+              .homepage__callout__wrapper
+                .homepage__callout__cta
+                  h1.homepage__hero__title=section.primary.title
+                  button.home__hero__button Cotizar
+
+          if section.slice_type == 'contact'
+            section.homepage__contact(id='contact')
+              .homepage__contact__wrapper
+                .homepage__contact__info
+                  a.homepage__contact__office(href=section.primary.google_maps_page)
+                    h3.homepage__contact__office__title=section.primary.address_title
+                    p.homepage__contact__office__address=section.primary.address
+
+                  .homepage__contact__mediums
+                    a.homepage__contact__link
+                      svg.homepage__contact__link__icon Mail Icon
+                      p.homepage__contact__mail=section.primary.mail
+
+                    a.homepage__contact__link
+                      svg.homepage__contact__link__icon Phone Icon
+                      p.homepage__contact__phone=section.primary.phone
+
+                    a.homepage__contact__whatsapp(href=section.primary.whatsapp)
+                      svg.homepage__contact__whatsapp__icon
+
+                .homepage__contact__copyright
+                  p.homepage__contact__copyright__name Cercas Huamya 2023
+
+                  .homepage__contact__copyright__icons
+                    a.homepage__contact__copyright__icon__link
+                      svg.homepage__contact__copyright__icon
+
+                    a.homepage__contact__copyright__icon__link
+                      svg.homepage__contact__copyright__icon
+
+                    a.homepage__contact__copyright__icon__link
+                      svg.homepage__contact__copyright__icon
+
 
 
