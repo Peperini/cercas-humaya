@@ -1,2 +1,12 @@
 .quoter-selectors
-  p.quoter__title Quoter Selectors
+  .quoter-selectors__wrapper
+    a.quoter-selectors__close__link(href='/')
+      svg.quoter-selectors__close__icon(xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="none")
+        path(d="M2 27L27 2" stroke="black" stroke-width="4")
+        path(d="M27 27L2 2" stroke="black" stroke-width="4")
+
+    .quoter-selectors__select
+      .quoter-selectors__options
+        p.quoter-selectors__options__title=quoter_selector.data.title
+      button.quoter-selectors__button__next Siguiente
+

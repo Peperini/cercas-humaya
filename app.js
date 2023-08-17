@@ -79,7 +79,7 @@ app.get('/', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
 
-  console.log(defaults.quoter_end.data)
+  console.log(defaults.quoter_selector.data)
 
   res.render('base', { ...defaults })
 })
