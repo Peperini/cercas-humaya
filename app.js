@@ -51,12 +51,12 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 const handleRequest = async api => {
-  const [ meta, navigation, homepage, quoter_selector, quoter_end ] =
+  const [ meta, navigation, homepage, quoter, quoter_end ] =
     await Promise.all([
       api.getSingle('meta'),
       api.getSingle('navigation'),
       api.getSingle('homepage'),
-      api.getSingle('quoter_selector'),
+      api.getSingle('quoter'),
       api.getSingle('quoter_end'),
     ])
 
@@ -70,7 +70,7 @@ const handleRequest = async api => {
     meta,
     navigation,
     homepage,
-    quoter_selector,
+    quoter,
     quoter_end
   }
 }
@@ -79,7 +79,7 @@ app.get('/', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
 
-  console.log(defaults.quoter_selector.data)
+  console.log(defaults.quoter.data)
 
   res.render('base', { ...defaults })
 })

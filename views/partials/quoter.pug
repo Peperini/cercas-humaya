@@ -1,0 +1,58 @@
+.quoter
+  .quoter__wrapper
+    a.quoter__close__link(href='/')
+      svg.quoter__close__icon(xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="none")
+        path(d="M2 27L27 2" stroke="black" stroke-width="4")
+        path(d="M27 27L2 2" stroke="black" stroke-width="4")
+
+    .quoter__popup__wrapper
+      form.quoter__popup__form
+        each section in quoter.data.body
+          if section.slice_type == 'servicio'
+            .quoter__form__services
+              label.quoter__form__services__title=section.primary.title
+              .quoter__form__services__row
+                each button in section.items
+                  .quoter__form__services__button
+                    input.quoter__form__services__input(type='checkbox')
+                    p.quoter__form__services__label=button.button_placeholder
+
+          if section.slice_type == 'extras'
+            .quoter__form__extras
+              label.quoter__form__extras__title=section.primary.title
+              .quoter__form__extras__row
+                each button in section.items
+                  .quoter__form__extras__button
+                    input.quoter__form__extras__input(type='checkbox')
+                    p.quoter__form__extras__label=button.button_placeholder
+
+          if section.slice_type == 'terreno'
+            .quoter__form__terreno
+              label.quoter__form__terreno__title=section.primary.title
+              .quoter__form__terreno__row
+                each button in section.items
+                  .quoter__form__terreno__button
+                    input.quoter__form__terreno__input(type='checkbox')
+                    p.quoter__form__terreno__label=button.button_placeholder
+
+          if section.slice_type == 'dimensiones'
+            .quoter__form__dimensiones
+              label.quoter__form__dimensiones__title=section.primary.title
+              img.quoter__form__dimensiones__alert
+              img.quoter__form__dimensiones__mesh
+              .quoter__form__dimensiones__row
+                each form in section.items
+                  .quoter__form__dimensiones__form
+                    label.quoter__form__dimensiones__label=form.form_title
+                    input.quoter__form__dimensiones__input(type='form' placeholder=form.form_placeholder)
+
+          if section.slice_type == 'demo_forms'
+            .quoter__form__demo-forms
+              .quoter__form__demo-forms__row
+                each form in section.items
+                  .quoter__form__demo-forms__form
+                    label.quoter__form__demo-forms__label=form.form_title
+                    input.quoter__form__demo-forms__input(type='form' placeholder=form.form_placeholder)
+
+        .quoter__form__button__wrapper
+          input.quoter__form__submit(type='submit' value='Enviar Cotización')
