@@ -6,7 +6,7 @@ html(lang="en")
 
     title=meta.data.title
 
-    meta(name="description" content="Cercas Humaya")
+    meta(name="description" content=meta.data.description)
 
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
     link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
@@ -48,7 +48,7 @@ html(lang="en")
               .homepage__hero__wrapper
                 .homepage__hero__cta
                   h1.homepage__hero__title=section.primary.title
-                  button.home__hero__button Cotizar
+                  button.homepage__hero__button Cotizar
 
                 .homepage__hero__gallery
                   each media in section.items
@@ -80,7 +80,7 @@ html(lang="en")
               .homepage__callout__wrapper
                 .homepage__callout__cta
                   h1.homepage__hero__title=section.primary.title
-                  button.home__hero__button Cotizar
+                  button.homepage__hero__button Cotizar
 
           if section.slice_type == 'contact'
             section.homepage__contact(id='contact')
