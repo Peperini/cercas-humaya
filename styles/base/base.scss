@@ -1,5 +1,12 @@
+*, *:after, *:before  {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  font-size: calc(100vw / 1280 * 10);
+}
+
 body {
-  font-family: $font-inter;
-  font-weight: normal;
-  font-size: 1.6rem;
+  @extend %paragraph;
 }

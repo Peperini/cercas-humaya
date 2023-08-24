@@ -3,6 +3,11 @@
 @import './utils/variables';
 @import './utils/functions';
 @import './utils/mixins';
+@import './utils/responsive';
+
+@import './shared/titles';
+@import './shared/paragraph';
+@import './shared/pages';
 
 @import './base/fonts';
 @import './base/base';
