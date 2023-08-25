@@ -37,14 +37,17 @@
 
           if section.slice_type == 'dimensiones'
             .quoter__form__dimensiones
-              label.quoter__form__dimensiones__title=section.primary.title
-              img.quoter__form__dimensiones__alert
-              img.quoter__form__dimensiones__mesh
-              .quoter__form__dimensiones__row
-                each form in section.items
-                  .quoter__form__dimensiones__form
-                    label.quoter__form__dimensiones__label=form.form_title
-                    input.quoter__form__dimensiones__input(type='form' placeholder=form.form_placeholder)
+              .quoter__form__dimensiones__top
+                label.quoter__form__dimensiones__title=section.primary.title
+                img.quoter__form__dimensiones__alert
+              .quoter__form__dimensiones__bottom
+                figure.quoter__form__dimensiones__media
+                  img.quoter__form__dimensiones__mesh
+                .quoter__form__dimensiones__row
+                  each form in section.items
+                    .quoter__form__dimensiones__form
+                      label.quoter__form__dimensiones__label=form.form_title
+                      input.quoter__form__dimensiones__input(type='form' placeholder=form.form_placeholder)
 
           if section.slice_type == 'demo_forms'
             .quoter__form__demo-forms

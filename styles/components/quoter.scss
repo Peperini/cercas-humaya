@@ -1,9 +1,25 @@
-.quoter__wrapper {
+.quoter {
+  @extend %center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 
+  background: $color-white;
+  display: none;
+}
+
+.quoter__wrapper {
+  padding: 20rem 0rem;
 }
 
 .quoter__close__link {
+  width: 2.5rem;
+  height: 2.5rem;
 
+  position: absolute;
+  left: 120.5rem;
+  top: 5rem;
 }
 
 .quoter__close__icon {
@@ -15,91 +31,185 @@
 }
 
 .quoter__popup__form {
+  @extend %center;
 
+  width: 74.6rem;
+  flex-direction: column;
+  gap: 3.5rem;
 }
 
 .quoter__form__services {
-
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .quoter__form__services__title {
+  @extend %paragraph-small;
 
+  align-self: stretch;
+  line-height: 1.82rem;
+  color: $color-dark;
 }
 
 .quoter__form__services__row {
-
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
+  gap: 1.5rem;
 }
 
 .quoter__form__services__button {
+  @extend %center;
 
+  padding: 1.5rem 0rem;
+  width: 23.8667rem;
+  border-radius: 2.5rem;
+  border: 2px solid $color-gray;
+  background: none;
 }
 
 .quoter__form__services__input {
-
+  position: absolute;
+  visibility: hidden;
 }
 
 .quoter__form__services__label {
+  @extend %paragraph-bold;
 
+  text-align: center;
+  color: $color-gray;
 }
 
 .quoter__form__extras {
-
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .quoter__form__extras__title {
+  @extend %paragraph-small;
 
+  align-self: stretch;
+  line-height: 1.82rem;
+  color: $color-dark;
 }
 
 .quoter__form__extras__row {
-
+  display: flex;
+  align-self: stretch;
+  gap: 1.5rem;
 }
 
 .quoter__form__extras__button {
+  @extend %center;
 
+  padding: 1.5rem 0rem;
+  border-radius: 2.5rem;
+  flex: 1 0 0;
+
+  border: 2px solid $color-gray;
+  background: none;
 }
 
 .quoter__form__extras__input {
-
+  position: absolute;
+  visibility: hidden;
 }
 
 .quoter__form__extras__label {
+  @extend %paragraph-bold;
 
+  text-align: center;
+  color: $color-gray;
 }
 
 .quoter__form__terreno {
-
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .quoter__form__terreno__title {
+  @extend %paragraph-small;
 
+  align-self: stretch;
+  line-height: 1.82rem;
+  color: $color-dark;
 }
 
 .quoter__form__terreno__row {
-
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
+  gap: 1.5rem;
 }
 
 .quoter__form__terreno__button {
+  @extend %center;
 
+  padding: 1.5rem 0rem;
+  width: 23.8667rem;
+  border-radius: 2.5rem;
+  border: 2px solid $color-gray;
+  background: none;
 }
 
 .quoter__form__terreno__input {
-
+  position: absolute;
+  visibility: hidden;
 }
 
 .quoter__form__terreno__label {
+  @extend %paragraph-bold;
 
+  text-align: center;
+  color: $color-gray;
 }
 
 .quoter__form__dimensiones {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  flex-direction: column;
+  gap: 1rem;
+}
 
+.quoter__form__dimensiones__top {
+  @extend %center;
+
+  gap: 1rem;
 }
 
 .quoter__form__dimensiones__title {
+  @extend %paragraph-small;
 
+  line-height: 1.82rem;
+  color: $color-dark;
 }
 
 .quoter__form__dimensiones__alert {
+  width: 2rem;
+  height: 2rem;
+}
 
+.quoter__form__dimensiones__bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
+.quoter__form__dimensiones__media {
+  @extend center;
+
+  align-self: stretch;
 }
 
 .quoter__form__dimensiones__mesh {
@@ -107,46 +217,102 @@
 }
 
 .quoter__form__dimensiones__row {
-
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
 }
 
 .quoter__form__dimensiones__form {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1 0 0;
 }
 
 .quoter__form__dimensiones__label {
+  @extend %paragraph-small;
 
+  color: $color-dark;
 }
 
 .quoter__form__dimensiones__input {
+  @extend %paragraph;
 
+  color: $color-gray;
+  display: flex;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  align-self: stretch;
+  border: 2px solid $color-gray;
 }
 
 .quoter__form__demo-forms {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  gap: 1rem;
 }
 
 .quoter__form__demo-forms__row {
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
 }
 
 .quoter__form__demo-forms__form {
+  width: 24.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
+  &:nth-child(4) {
+    width: 36.8rem;
+  }
+
+  &:nth-child(5) {
+    width: 36.8rem;
+  }
 }
 
 .quoter__form__demo-forms__label {
+  @extend %paragraph-small;
 
+  color: $color-dark;
 }
 
 .quoter__form__demo-forms__input {
+  @extend %paragraph;
 
+  color: $color-gray;
+  display: flex;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  align-self: stretch;
+  border: 2px solid $color-gray;
 }
 
 .quoter__form__button__wrapper {
+  @extend %center;
 
+  align-self: stretch;
 }
 
 .quoter__form__submit {
+  @extend %paragraph-bold;
 
+  text-align: center;
+  line-height: 100%;
+  color: $color-punch;
+  width: 74.6rem;
+  padding: 1.5rem 0rem;
+  background: none;
+  border: solid 2px $color-punch;
+  border-radius: 2.5rem;
 }
 
