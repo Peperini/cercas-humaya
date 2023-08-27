@@ -44,4 +44,4 @@ To run this project locally, follow these steps:
 
 If you have any questions or comments regarding this project, feel free to reach out to me:
 
-- Email: josearmando.zara@gmail.com
+- Email: josearmando@gothier.co
