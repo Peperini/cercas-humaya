@@ -1,20 +1,31 @@
 .homepage__services {
-
+  width: 100%;
+  padding: 15rem 5rem;
 }
 
 .homepage__services__wrapper {
-
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
 }
 
 .homepage__services__subtitle {
+  @extend %title-32-reg;
 
+  color: $color-punch;
 }
 
 .homepage__services__list {
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
 }
 
 .homepage__services__service {
+  @extend %title-64;
 
+  padding: 1.5rem 0rem;
+  width: 100%;
 }
 

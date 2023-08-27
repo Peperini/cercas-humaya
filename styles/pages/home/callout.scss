@@ -1,20 +1,45 @@
 .homepage__callout {
-
+  width: 100%;
+  height: 100vh;
 }
 
 .homepage__callout__wrapper {
+  @extend %center;
 
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .homepage__callout__cta {
+  @extend %center;
 
+  padding-top: 10rem;
+  width: 73.2rem;
+  flex-direction: column;
+  gap: 4rem;
+  text-align: center;
 }
 
-.homepage__hero__title {
+.homepage__callout__title {
+  @extend %title-64;
 
+  color: $color-white;
+  width: 100%;
+  line-height: 6.72rem;
 }
 
-.homepage__hero__button {
+.homepage__callout__button {
+  @extend %center;
+  @extend %paragraph-bold;
 
+  padding: 1.5rem 6rem;
+  border-radius: 2.5rem;
+  border: 2px solid $color-punch;
+  background: none;
+
+  color: $color-punch;
+  text-align: center;
+  line-height: 100%;
 }
 

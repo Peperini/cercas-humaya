@@ -9,4 +9,5 @@ html {
 
 body {
   @extend %paragraph;
+  color: $color-dark;
 }

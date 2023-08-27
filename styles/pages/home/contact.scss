@@ -1,52 +1,83 @@
 .homepage__contact {
-
+  background: $color-punch;
+  width: 100%;
+  padding: 25rem 5rem 5rem 5rem;
+  color: $color-white;
 }
 
 .homepage__contact__wrapper {
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12.4rem;
 }
 
 .homepage__contact__info {
-
+  display: flex;
+  align-items: flex-start;
+  gap: 12.4rem;
+  flex: 1 0 0;
 }
 
 .homepage__contact__office {
-
+  display: flex;
+  flex-direction: column;
+  width: 31.1rem;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: $color-white;
 }
 
 .homepage__contact__office__title {
+  @extend %sub-title-24;
 
+  line-height: 115%; /* 2.76rem */
+  width: 100%;
 }
 
 .homepage__contact__office__address {
+  position: relative;
+  width: 100%;
+}
 
+.homepage__contact__office__address__text {
+  @extend %paragraph;
+
+  width: 100%;
+  line-height: 150%; /* 2.4rem */
+}
+
+.homepage__contact__office__address__icon {
+  position: absolute;
+  left: 14.3rem;
+  bottom: 0.4rem;
 }
 
 .homepage__contact__mediums {
-
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .homepage__contact__link {
-
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .homepage__contact__link__icon {
-
+  width: 2rem;
+  height: 2rem;
 }
 
 .homepage__contact__mail {
-
-}
-
-.homepage__contact__link {
-
-}
-
-.homepage__contact__link__icon {
+  @extend %paragraph;
 
 }
 
 .homepage__contact__phone {
+  @extend %paragraph;
 
 }
 
@@ -55,19 +86,27 @@
 }
 
 .homepage__contact__whatsapp__icon {
-
+  width: 18.9rem;
+  height: 4rem;
 }
 
 .homepage__contact__copyright {
-
+  display: flex;
+  align-items: center;
+  width: 31.1rem;
+  gap: 3rem;
 }
 
 .homepage__contact__copyright__name {
+  @extend %paragraph-small;
 
+  width: 100%;
 }
 
 .homepage__contact__copyright__icons {
-
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .homepage__contact__copyright__icon__link {
@@ -75,21 +114,6 @@
 }
 
 .homepage__contact__copyright__icon {
-
-}
-
-.homepage__contact__copyright__icon__link {
-
-}
-
-.homepage__contact__copyright__icon {
-
-}
-
-.homepage__contact__copyright__icon__link {
-
-}
-
-.homepage__contact__copyright__icon {
-
+  width: 2rem;
+  height: 2rem;
 }
