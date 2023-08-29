@@ -13,7 +13,7 @@ TBD <!-- ## [See it live](https://your-website-url.com) -->
 To run this project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/peperini/cercas-humaya.git`
-2. Install dependencies: `npm install`
+2. Add `.env` file to the project folder
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 
