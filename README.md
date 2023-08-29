@@ -17,6 +17,17 @@ To run this project locally, follow these steps:
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 
+### Environment Variables
+
+Your .env file should contain:
+
+```sh
+PRISMIC_REPOSITORY=
+PRISMIC_ACCESS_TOKEN=
+```
+
+Ensure these are properly set to connect with Prismic services.
+
 ## Technologies Used
 
 - PUG (HTML Template Engine)
