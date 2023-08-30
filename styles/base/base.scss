@@ -9,5 +9,18 @@ html {
 
 body {
   @extend %paragraph;
+
   color: $color-dark;
 }
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+

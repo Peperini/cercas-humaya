@@ -6,6 +6,7 @@
   z-index: z('navigation');
   position: fixed;
   padding: 0rem 5rem;
+  color: $color-gray;
 }
 
 .navigation__wrapper {
@@ -16,7 +17,7 @@
 }
 
 .navigation__link {
-
+  font-size: 0;
 }
 
 .navigation__link__icon {
@@ -38,7 +39,7 @@
 
 .navigation__list__link {
   text-decoration: none;
-  color: $color-gray;
+  color: inherit;
 }
 
 .navigation__list__link:hover {
