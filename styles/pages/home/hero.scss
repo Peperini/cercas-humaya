@@ -1,6 +1,6 @@
 .homepage__hero {
+  height: 93.63rem;
   width: 100%;
-  height: 100vh;
 }
 
 .homepage__hero__wrapper {
@@ -8,15 +8,23 @@
 
   width: 100%;
   height: 100%;
+
+  @include media('<phone') {
+    flex-direction: column;
+  }
 }
 
 .homepage__hero__cta {
   @extend %center;
 
   width: 70.2rem;
-  height: 100%;
   flex-direction: column;
   gap: 4rem;
+
+  @include media('<phone') {
+    padding: 10rem 0rem 7rem 0rem;
+    gap: 2rem;
+  }
 }
 
 .homepage__hero__title {
