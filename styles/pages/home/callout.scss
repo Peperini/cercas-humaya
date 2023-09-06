@@ -19,6 +19,10 @@
   flex-direction: column;
   gap: 4rem;
   text-align: center;
+
+  @include media('<phone') {
+    width: 33.3rem;
+  }
 }
 
 .homepage__callout__title {
@@ -27,6 +31,10 @@
   color: $color-white;
   width: 100%;
   line-height: 6.72rem;
+
+  @include media('<phone') {
+    line-height: 115%; /* 3.68rem */
+  }
 }
 
 .homepage__callout__button {

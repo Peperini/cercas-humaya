@@ -12,12 +12,25 @@
   padding: 0rem 5rem;
   align-items: center;
   gap: 12.3rem;
+
+  @include media('<phone') {
+    flex-direction: column-reverse;
+    padding: 0rem 2.5rem;
+    gap: 7rem;
+    width: 100%;
+  }
 }
 
 .quoter-end__gallery {
   display: flex;
   flex-direction: column;
   gap: 2.8rem;
+
+  @include media('<phone') {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
 }
 
 .quoter-end__gallery__media {
@@ -47,6 +60,33 @@
     width: 28rem;
     height: 39.6rem;
   }
+
+  @include media('<phone') {
+    &:nth-child(1) {
+      width: 22rem;
+      height: 31rem;
+    }
+
+    &:nth-child(2) {
+      width: 19.8rem;
+      height: 28.1rem;
+    }
+
+    &:nth-child(3) {
+      width: 29.8rem;
+      height: 28.1rem;
+    }
+
+    &:nth-child(4) {
+      width: 22rem;
+      height: 31rem;
+    }
+
+    &:nth-child(5) {
+      width: 19.8rem;
+      height: 28.1rem;
+    }
+  }
 }
 
 .quoter-end__gallery__media__image {
@@ -57,16 +97,26 @@
 
 .quoter-end__information {
   display: flex;
-  width: 63.5rem;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+
+  @include media('<phone') {
+    gap: 2rem;
+    width: 100%;
+  }
 }
 
 .quoter-end__information__title {
   @extend %title-80;
 
-  line-height: 7.6rem
+  line-height: 7.6rem;
+
+  @include media('<phone') {
+    font-size: 3.2rem;
+    line-height: 115%; /* 3.68rem */
+  }
 }
 
 .quoter-end__information__text {
@@ -80,8 +130,11 @@
   width: 31.4rem;
   flex-direction: column;
   justify-content: center;
-
   gap: 1rem;
+
+  @include media('<phone') {
+    width: 100%
+  }
 }
 
 .quoter-end__information__button {
@@ -90,8 +143,7 @@
 
   position: relative;
   padding: 1.5rem 6rem;
-  align-self: stretch;
-
+  width: 100%;
   border-radius: 2.5rem;
   border: 2px solid $color-punch;
   background: none;
@@ -101,9 +153,10 @@
 }
 
 .quoter-end__information__finish__alert {
-  display: flex;
+  @extend %center;
+
   gap: 1rem;
-  align-self: stretch;
+  width: 100%;
 }
 
 .quoter-end__information__finish__alert-circle {

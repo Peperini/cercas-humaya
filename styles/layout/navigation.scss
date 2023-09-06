@@ -7,10 +7,16 @@
   position: fixed;
   padding: 0rem 5rem;
   color: $color-gray;
+
+  @include media('<phone') {
+    padding: 0rem 2.5rem;
+    width: 100%;
+  }
 }
 
 .navigation__wrapper {
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,11 +36,14 @@
   justify-content: flex-end;
   align-items: center;
   gap: 3.5rem;
+
+  @include media('<phone') {
+    gap: 1.5rem;
+  }
 }
 
 .navigation__list__item {
   @extend %paragraph-small;
-
 }
 
 .navigation__list__link {

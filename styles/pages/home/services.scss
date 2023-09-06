@@ -1,12 +1,20 @@
 .homepage__services {
   width: 100%;
   padding: 15rem 5rem;
+
+  @include media('<phone') {
+    padding: 15rem 1.5rem;
+  }
 }
 
 .homepage__services__wrapper {
   display: flex;
   gap: 5rem;
   flex-direction: column;
+
+  @include media('<phone') {
+    gap: 3rem;
+  }
 }
 
 .homepage__services__subtitle {
@@ -27,5 +35,8 @@
 
   padding: 1.5rem 0rem;
   width: 100%;
-}
 
+  @include media('<phone') {
+    padding: 1rem 0rem;
+  }
+}
