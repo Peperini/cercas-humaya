@@ -82,7 +82,7 @@ app.get('/', async (req, res) => {
 
   console.log(defaults.quoter.data)
 
-  res.render('base', { ...defaults })
+  res.render('pages/home', { ...defaults })
 })
 
 app.listen(port, () => {
