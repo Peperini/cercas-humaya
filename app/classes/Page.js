@@ -18,10 +18,18 @@ export default class Page {
     this.element = document.querySelector(this.selector)
     this.elements = {}
 
-    each(this.selectorChildren, element => {
-      console.log(element)
-    })
+    each(this.selectorChildren, (element, key) => {
+      if (element instanceof window.HTMLElement || element instanceof window.NodeList || Array.isArray(element)) {
+        this.elements[key] = element
+      } else {
+        this.elements[key] = document.querySelectorAll(element)
 
-    console.log('Create', this.id, this.element)
+        if (this.elements[key].length === 0) {
+          this.elements[key] = null
+        } else if (this.elements[key].length === 1) {
+          this.elements[key] = document.querySelector(element)
+        }
+      }
+    })
   }
 }
