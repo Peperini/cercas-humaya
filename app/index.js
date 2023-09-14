@@ -1,13 +1,20 @@
 import each from 'lodash/each'
 
 import Home from 'pages/Home'
+import Preloader from 'components/Preloader'
 
 class App {
   constructor() {
+    this.createPreloader()
     this.createContent()
     this.createPages()
 
     this.addLinkListeners()
+  }
+
+  createPreloader () {
+    this.preloader = new Preloader()
+    this.preloader.once('completed', this.onPreloaded.bind(this))
   }
 
   createContent () {
@@ -23,6 +30,10 @@ class App {
     this.page = this.pages[this.template]
     this.page.create()
     this.page.show()
+  }
+
+  onPreloaded () {
+    this.preloader.destroy()
   }
 
   async onChange (url) {
@@ -46,6 +57,8 @@ class App {
       this.page = this.pages[this.template]
       this.page.create()
       this.page.show()
+
+      this.addLinkListeners()
     } else {
       console.log('Request Error')
     }

@@ -3,7 +3,7 @@
     .quoter-end__gallery
       each media in quoter_end.data.gallery
         figure.quoter-end__gallery__media
-          img.quoter-end__gallery__media__image(alt=media.image.alt src=media.image.url)
+          img.quoter-end__gallery__media__image(alt=media.image.alt data-src=media.image.url)
 
     .quoter-end__information
       h1.quoter-end__information__title=quoter_end.data.title
