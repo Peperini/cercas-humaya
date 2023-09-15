@@ -11,3 +11,7 @@
 .preloader__number {
   @extend %title-200;
 }
+
+span {
+  overflow: hidden;
+}
