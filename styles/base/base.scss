@@ -4,7 +4,11 @@
 }
 
 html {
+  @extend %cover;
+
   font-size: calc(100vw / 1280 * 10);
+  position: fixed;
+  overflow: hidden;
 
   @include media('<phone') {
     font-size: calc(100vw / 490 * 10);
@@ -12,9 +16,11 @@ html {
 }
 
 body {
+  @extend %cover;
   @extend %paragraph;
 
   color: $color-dark;
+  position: fixed;
 }
 
 a {
@@ -26,5 +32,10 @@ a {
 img {
   vertical-align: middle;
 }
+
+.content {
+  @extend %cover;
+}
+
 
 

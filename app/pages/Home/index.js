@@ -6,6 +6,7 @@ export default class Home extends Page {
       id: 'home',
       element: '.homepage',
       elements: {
+        wrapper: '.homepage__wrapper',
         navigation: document.querySelector('.navigation'),
         button: '.homepage__hero__button'
       }

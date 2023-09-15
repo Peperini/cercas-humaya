@@ -9,7 +9,10 @@ class App {
     this.createContent()
     this.createPages()
 
+    this.addEventListeners()
     this.addLinkListeners()
+
+    this.update()
   }
 
   createPreloader () {
@@ -30,12 +33,12 @@ class App {
     this.page = this.pages[this.template]
     this.page.create()
     this.page.show()
-
   }
 
   onPreloaded () {
     this.preloader.destroy()
 
+    this.onResize()
   }
 
   async onChange (url) {
@@ -58,12 +61,33 @@ class App {
 
       this.page = this.pages[this.template]
       this.page.create()
+
+      this.onResize()
+
       this.page.show()
 
       this.addLinkListeners()
     } else {
       console.log('Request Error')
     }
+  }
+
+  onResize () {
+    if (this.page && this.page.onResize) {
+      this.page.onResize()
+    }
+  }
+
+  update () {
+    if (this.page && this.page.update) {
+      this.page.update()
+    }
+
+    this.frame = window.requestAnimationFrame(this.update.bind(this))
+  }
+
+  addEventListeners () {
+    window.addEventListener('resize', this.onResize.bind(this))
   }
 
   addLinkListeners () {
