@@ -1,6 +1,10 @@
 import GSAP from 'gsap'
 import each from 'lodash/each'
+import map from 'lodash/map'
+import normalizeWheel from 'normalize-wheel'
 import Prefix from 'prefix'
+
+import Title from 'animations/Title'
 
 export default class Page {
   constructor ({
@@ -10,7 +14,8 @@ export default class Page {
   }) {
     this.selector = element
     this.selectorChildren = {
-      ...elements
+      ...elements,
+      animationTitles: '[data-animation="title"]'
     }
 
     this.id = id
@@ -42,6 +47,16 @@ export default class Page {
           this.elements[key] = document.querySelector(element)
         }
       }
+    })
+
+    this.createAnimations()
+  }
+
+  createAnimations () {
+    this.animationTitles = map(this.elements.animationTitles, element => {
+      return new Title ({
+        element
+      })
     })
   }
 
@@ -77,15 +92,17 @@ export default class Page {
   }
 
   onMouseWheel (event) {
-    const { deltaY } = event
+    const { pixelY } = normalizeWheel(event)
 
-    this.scroll.target += deltaY
+    this.scroll.target += pixelY
   }
 
   onResize () {
     if (this.elements.wrapper) {
       this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight
     }
+
+    each(this.animationTitles, animation => animation.onResize())
   }
 
   update () {

@@ -11,7 +11,7 @@ block content
           section.homepage__hero
             .homepage__hero__wrapper
               .homepage__hero__cta
-                h1.homepage__hero__title=section.primary.title
+                h1.homepage__hero__title(data-animation="title")=section.primary.title
                 button.homepage__hero__button Cotizar
 
               .homepage__hero__gallery
@@ -37,13 +37,13 @@ block content
               h3.homepage__services__subtitle=section.primary.title
               .homepage__services__list
                 each service in section.items
-                  h2.homepage__services__service=service.name
+                  h2.homepage__services__service(data-animation="title")=service.name
 
         if section.slice_type == 'callout'
           section.homepage__callout
             .homepage__callout__wrapper(style=`background-image: url(${section.primary.image.url})`)
               .homepage__callout__cta
-                h1.homepage__callout__title=section.primary.title
+                h1.homepage__callout__title(data-animation="title")=section.primary.title
                 button.homepage__callout__button Cotizar
 
         if section.slice_type == 'contact'
