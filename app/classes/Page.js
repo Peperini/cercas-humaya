@@ -5,6 +5,7 @@ import normalizeWheel from 'normalize-wheel'
 import Prefix from 'prefix'
 
 import Title from 'animations/Title'
+import Paragraph from 'animations/Paragraph'
 
 export default class Page {
   constructor ({
@@ -15,7 +16,8 @@ export default class Page {
     this.selector = element
     this.selectorChildren = {
       ...elements,
-      animationTitles: '[data-animation="title"]'
+      animationTitles: '[data-animation="title"]',
+      animationParagraphs: '[data-animation="paragraph"]'
     }
 
     this.id = id
@@ -53,11 +55,23 @@ export default class Page {
   }
 
   createAnimations () {
+    this.animations = []
+
     this.animationTitles = map(this.elements.animationTitles, element => {
       return new Title ({
         element
       })
     })
+
+    this.animations.push(...this.animationTitles)
+
+    this.animationParagraphs = map(this.elements.animationParagraphs, element => {
+      return new Paragraph ({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationParagraphs)
   }
 
   show () {
@@ -102,7 +116,7 @@ export default class Page {
       this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight
     }
 
-    each(this.animationTitles, animation => animation.onResize())
+    each(this.animations, animation => animation.onResize())
   }
 
   update () {

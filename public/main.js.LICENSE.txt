@@ -332,6 +332,8 @@
 
 /*! ./utils/stripAnsi.js */
 
+/*! animations/Paragraph */
+
 /*! animations/Title */
 
 /*! ansi-html-community */
@@ -417,6 +419,10 @@
 /*!************************************!*\
   !*** ./node_modules/lodash/map.js ***!
   \************************************/
+
+/*!*************************************!*\
+  !*** ./app/animations/Paragraph.js ***!
+  \*************************************/
 
 /*!*************************************!*\
   !*** ./app/components/Preloader.js ***!

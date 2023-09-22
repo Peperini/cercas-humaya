@@ -3,17 +3,17 @@ import GSAP  from 'gsap'
 import Animation from "classes/Animation"
 import { calculate, split } from 'utils/text'
 
-export default class Title extends Animation {
+export default class Paragraph extends Animation {
   constructor ( { element, elements }) {
     super({
       element,
       elements
     })
 
-    split({ element: this.element, append: true })
-    split({ element: this.element, append: true })
-
-    this.elementLinesSpans = this.element.querySelectorAll('span span')
+    this.elementLinesSpans = split({
+      element: this.element,
+      append: true
+    })
   }
 
   animateIn () {
@@ -27,8 +27,10 @@ export default class Title extends Animation {
 
     each(this.elementLines, (line, index) => {
       this.timelineIn.fromTo(line, {
+        autoAlpha: 0,
         y: '100%'
       }, {
+        autoAlpha: 1,
         delay: index * 0.2,
         duration: 1,
         ease: 'expo.out',

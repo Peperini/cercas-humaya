@@ -23,7 +23,7 @@ block content
           section.homepage__history(id='about')
             .homepage__history__wrapper
               .homepage__history__story
-                h3.homepage__history__title=section.primary.title
+                h3.homepage__history__title(data-animation="paragraph")=section.primary.title
                 .homepage__history__copy!=PrismicH.asHTML(section.primary.copy).replace(/<p>/g, '<p data-animation="paragraph">')
 
               .homepage__history__gallery
