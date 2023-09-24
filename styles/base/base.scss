@@ -36,6 +36,7 @@ img {
 .content {
   @extend %cover;
 }
+
 [data-animation="paragraph"],
 [data-animation="title"] {
   span {
@@ -43,4 +44,8 @@ img {
     overflow: hidden;
     vertical-align: top;
   }
+}
+
+button {
+  cursor: pointer;
 }

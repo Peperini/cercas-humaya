@@ -2,10 +2,12 @@ import each from 'lodash/each'
 
 import Home from 'pages/Home'
 import Preloader from 'components/Preloader'
+import Quoter from 'components/Quoter'
 
 class App {
   constructor() {
     this.createPreloader()
+    this.createQuoter()
     this.createContent()
     this.createPages()
 
@@ -13,6 +15,12 @@ class App {
     this.addLinkListeners()
 
     this.update()
+  }
+
+  createQuoter () {
+    this.quoter = new Quoter()
+
+    this.quoter.create()
   }
 
   createPreloader () {

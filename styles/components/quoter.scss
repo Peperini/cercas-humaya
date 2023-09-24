@@ -1,29 +1,28 @@
 .quoter {
   @extend %center;
+
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-
+  z-index: z('quoter');
   background: $color-white;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .quoter__wrapper {
   padding: 20rem 0rem;
 }
 
-.quoter__close__link {
+.quoter__close__icon {
   width: 2.5rem;
   height: 2.5rem;
 
   position: absolute;
   left: 120.5rem;
   top: 5rem;
-}
-
-.quoter__close__icon {
-
+  cursor: pointer;
 }
 
 .quoter__popup__wrapper {

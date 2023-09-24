@@ -32,7 +32,7 @@ export default class Paragraph extends Animation {
       }, {
         autoAlpha: 1,
         delay: index * 0.2,
-        duration: 1,
+        duration: 0.6,
         ease: 'expo.out',
         y: '0%'
       }, 0)
