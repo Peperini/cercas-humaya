@@ -12,7 +12,8 @@ block content
             .homepage__hero__wrapper
               .homepage__hero__cta
                 h1.homepage__hero__title(data-animation="title")=section.primary.title
-                button.homepage__hero__button Cotizar
+                a.cta__link(href='/quoter')
+                  button.homepage__hero__button Cotizar
 
               .homepage__hero__gallery
                 each media in section.items
@@ -44,7 +45,8 @@ block content
             .homepage__callout__wrapper(style=`background-image: url(${section.primary.image.url})`)
               .homepage__callout__cta
                 h1.homepage__callout__title(data-animation="title")=section.primary.title
-                button.homepage__callout__button Cotizar
+                a.cta__link(href='/quoter')
+                  button.homepage__callout__button Cotizar
 
         if section.slice_type == 'contact'
           section.homepage__contact(id='contact')

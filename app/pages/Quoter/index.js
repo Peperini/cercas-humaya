@@ -1,14 +1,13 @@
 import GSAP from 'gsap'
-import each from 'lodash/each'
 
-import Component from 'classes/Component';
+import Page from 'classes/Page'
 
-export default class Quoter extends Component {
+export default class Quoter extends Page {
   constructor () {
     super({
+      id: 'quoter',
       element: '.quoter',
       elements: {
-        button: '.homepage__hero__button',
         closeButton: '.quoter__close__icon',
         wrapper: '.quoter__wrapper'
       }
@@ -18,13 +17,11 @@ export default class Quoter extends Component {
 
   create () {
     super.create()
-
-    this.elements.button.addEventListener('click', () => this.show())
-    this.elements.closeButton.addEventListener('click', () => this.hide())
   }
 
   show () {
-    return new Promise(resolve => {
+    super.show()
+    /* return new Promise(resolve => {
       this.animateIn = GSAP.timeline()
 
       this.animateIn.to(this.element, {
@@ -45,13 +42,21 @@ export default class Quoter extends Component {
         duration: 0.5
       }, {
         autoAlpha: 1,
-        onComplete: resolve
       })
-    })
+
+      this.animateIn.call(() => {
+        this.addEventListeners()
+
+        resolve()
+      })
+    }) */
   }
 
   hide () {
-    return new Promise(resolve => {
+    super.hide()
+    /* return new Promise(resolve => {
+      this.removeEventListeners()
+
       this.animateOut = GSAP.timeline()
 
       this.animateOut.to(this.elements.wrapper, {
@@ -70,6 +75,6 @@ export default class Quoter extends Component {
         autoAlpha: 0,
         onComplete: resolve
       })
-    })
+    }) */
   }
 }

@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-
 const logger = require('morgan')
 const errorHandler = require('errorhandler')
 const bodyParser = require('body-parser')
@@ -31,6 +30,15 @@ const initApi = (req) => {
   })
 }
 
+const handleLinkResolver = doc => {
+  if (doc.type === 'quoter') {
+      return '/quoter'
+  }
+
+  //Default to homepage
+  return '/'
+}
+
 //Middleware to inject primic helper, ua-parser, and some utils
 app.use((req, res, next) => {
   const ua = uap(req.headers['user-agent'])
@@ -39,9 +47,7 @@ app.use((req, res, next) => {
   res.locals.isPhone = ua.device.type === 'mobile'
   res.locals.isTablet = ua.device.type === 'tablet'
 
-  /* res.locals.Numbers = index => {
-      return index == 0 ? 'One' : index == 1 ? 'Two' : index == 2 ? 'Three' : index == 3 ? 'Four' : ''
-  } */
+  res.locals.Link = handleLinkResolver
 
   res.locals.PrismicH = PrismicH
 
@@ -80,9 +86,14 @@ app.get('/', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
 
-  console.log(defaults.quoter.data)
-
   res.render('pages/home', { ...defaults })
+})
+
+app.get('/quoter', async (req, res) => {
+  const api = await initApi(req)
+  const defaults = await handleRequest(api)
+
+  res.render('pages/quoter', { ...defaults })
 })
 
 app.listen(port, () => {

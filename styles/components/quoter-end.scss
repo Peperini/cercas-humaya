@@ -5,6 +5,7 @@
   background: $color-white;
   overflow: hidden;
   display: none;
+  z-index: z('quoter');
 }
 
 .quoter-end__wrapper {

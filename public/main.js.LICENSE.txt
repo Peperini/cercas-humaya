@@ -346,8 +346,6 @@
 
 /*! components/Preloader */
 
-/*! components/Quoter */
-
 /*! events */
 
 /*! gsap */
@@ -361,6 +359,8 @@
 /*! normalize-wheel */
 
 /*! pages/Home */
+
+/*! pages/Quoter */
 
 /*! prefix */
 
@@ -406,9 +406,9 @@
   !*** ./app/classes/Component.js ***!
   \**********************************/
 
-/*!**********************************!*\
-  !*** ./app/components/Quoter.js ***!
-  \**********************************/
+/*!***********************************!*\
+  !*** ./app/pages/Quoter/index.js ***!
+  \***********************************/
 
 /*!***********************************!*\
   !*** ./node_modules/lodash/eq.js ***!

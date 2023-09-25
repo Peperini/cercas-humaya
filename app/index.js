@@ -1,13 +1,12 @@
 import each from 'lodash/each'
 
 import Home from 'pages/Home'
+import Quoter from 'pages/Quoter'
 import Preloader from 'components/Preloader'
-import Quoter from 'components/Quoter'
 
 class App {
   constructor() {
     this.createPreloader()
-    this.createQuoter()
     this.createContent()
     this.createPages()
 
@@ -15,12 +14,6 @@ class App {
     this.addLinkListeners()
 
     this.update()
-  }
-
-  createQuoter () {
-    this.quoter = new Quoter()
-
-    this.quoter.create()
   }
 
   createPreloader () {
@@ -35,7 +28,8 @@ class App {
 
   createPages () {
     this.pages = {
-      home: new Home()
+      home: new Home(),
+      quoter: new Quoter()
     }
 
     this.page = this.pages[this.template]
@@ -69,10 +63,10 @@ class App {
 
       this.page = this.pages[this.template]
       this.page.create()
+      this.page.show()
 
       this.onResize()
 
-      this.page.show()
 
       this.addLinkListeners()
     } else {
@@ -107,7 +101,7 @@ class App {
 
         const { href } = link
 
-        this.onChage(href)
+        this.onChange(href)
       }
     })
   }

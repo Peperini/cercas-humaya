@@ -1,10 +1,16 @@
-.quoter
-  .quoter__wrapper
-    svg.quoter__close__icon(xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="none")
-      path(d="M2 27L27 2" stroke="black" stroke-width="4")
-      path(d="M27 27L2 2" stroke="black" stroke-width="4")
+extends ../base.pug
 
-    .quoter__popup__wrapper
+block variables
+    - var template = 'quoter'
+
+block content
+  .quoter
+    .quoter__wrapper
+      a.quoter__close__link(href="/")
+        svg.quoter__close__icon(xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="none")
+          path(d="M2 27L27 2" stroke="black" stroke-width="4")
+          path(d="M27 27L2 2" stroke="black" stroke-width="4")
+
       form.quoter__popup__form
         each section in quoter.data.body
           if section.slice_type == 'servicio'
@@ -38,10 +44,13 @@
             .quoter__form__dimensiones
               .quoter__form__dimensiones__top
                 label.quoter__form__dimensiones__title=section.primary.title
-                img.quoter__form__dimensiones__alert
+                svg.quoter__form__dimensiones__alert(xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none")
+                  path(d="M12.2605 21.8358C17.7833 21.8358 22.2605 17.3586 22.2605 11.8358C22.2605 6.31291 17.7833 1.83575 12.2605 1.83575C6.73765 1.83575 2.2605 6.31291 2.2605 11.8358C2.2605 17.3586 6.73765 21.8358 12.2605 21.8358Z" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M12.2605 7.83575V11.8358" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  path(d="M12.2605 15.8358H12.2705" stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
               .quoter__form__dimensiones__bottom
                 figure.quoter__form__dimensiones__media
-                  img.quoter__form__dimensiones__mesh
+                  img.quoter__form__dimensiones__mesh(alt=section.primary.mesh.alt data-src=section.primary.mesh.url)
                 .quoter__form__dimensiones__row
                   each form in section.items
                     .quoter__form__dimensiones__form

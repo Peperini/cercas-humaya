@@ -12,21 +12,19 @@
 }
 
 .quoter__wrapper {
+  @extend %center;
+
   padding: 20rem 0rem;
+  width: 100%;
 }
 
-.quoter__close__icon {
+.quoter__close__link {
   width: 2.5rem;
   height: 2.5rem;
 
   position: absolute;
-  left: 120.5rem;
+  right: 5rem;
   top: 5rem;
-  cursor: pointer;
-}
-
-.quoter__popup__wrapper {
-
 }
 
 .quoter__popup__form {
@@ -212,7 +210,8 @@
 }
 
 .quoter__form__dimensiones__mesh {
-
+  width: 73.8rem;
+  height: 14.3rem;
 }
 
 .quoter__form__dimensiones__row {
