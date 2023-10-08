@@ -4,8 +4,9 @@
 
   background: $color-white;
   overflow: hidden;
-  display: none;
-  z-index: z('quoter');
+  opacity: 0;
+  visibility: hidden;
+  z-index: z('quoter-end');
 }
 
 .quoter-end__wrapper {

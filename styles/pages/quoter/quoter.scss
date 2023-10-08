@@ -304,6 +304,7 @@
 .quoter__form__submit {
   @extend %paragraph-bold;
 
+  cursor: pointer;
   text-align: center;
   line-height: 100%;
   color: $color-punch;

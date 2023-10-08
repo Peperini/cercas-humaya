@@ -4,6 +4,7 @@ import map from 'lodash/map'
 import normalizeWheel from 'normalize-wheel'
 import Prefix from 'prefix'
 
+import Cursor from 'utils/cursor'
 import Title from 'animations/Title'
 import Paragraph from 'animations/Paragraph'
 
@@ -52,6 +53,11 @@ export default class Page {
     })
 
     this.createAnimations()
+    this.createCursor()
+  }
+
+  createCursor() {
+
   }
 
   createAnimations () {
