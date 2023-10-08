@@ -1,0 +1,20 @@
+.cursor {
+	display: none;
+  z-index: z('cursor');
+}
+
+@media (any-pointer: fine) {
+	.cursor {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: block;
+		pointer-events: none;
+	}
+	.cursor__inner {
+		fill: $color-dark;
+		stroke: $color-dark;
+		stroke-width: 1px;
+		opacity: 0.3;
+	}
+}

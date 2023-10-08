@@ -57,7 +57,7 @@ export default class Page {
   }
 
   createCursor() {
-
+    const cursor = new Cursor(document.querySelector('.cursor'))
   }
 
   createAnimations () {
