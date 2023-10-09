@@ -38,7 +38,10 @@ block content
               h3.homepage__services__subtitle=section.primary.title
               .homepage__services__list
                 each service in section.items
-                  h2.homepage__services__service(data-animation="title")=service.name
+                  a.service__item(href="/quoter" data-image="img/1.jpg" data-animation="menu")
+                    span.service__item__text
+                      span.service__item__textinner=service.name
+                    span.service__item__sub Cotizar
 
         if section.slice_type == 'callout'
           section.homepage__callout

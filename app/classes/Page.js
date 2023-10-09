@@ -18,7 +18,8 @@ export default class Page {
     this.selectorChildren = {
       ...elements,
       animationTitles: '[data-animation="title"]',
-      animationParagraphs: '[data-animation="paragraph"]'
+      animationParagraphs: '[data-animation="paragraph"]',
+      cursor: '.cursor'
     }
 
     this.id = id
@@ -57,7 +58,7 @@ export default class Page {
   }
 
   createCursor() {
-    const cursor = new Cursor(document.querySelector('.cursor'))
+    const cursor = new Cursor(this.elements.cursor)
   }
 
   createAnimations () {

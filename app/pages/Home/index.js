@@ -1,4 +1,5 @@
 import Page from 'classes/Page'
+import Menu from 'classes/Menu'
 
 export default class Home extends Page {
   constructor () {
@@ -8,12 +9,14 @@ export default class Home extends Page {
       elements: {
         wrapper: '.homepage__wrapper',
         navigation: document.querySelector('.navigation'),
-        button: '.homepage__hero__button'
+        button: '.homepage__hero__button',
+        menuEl: '.homepage__services__list'
       }
      })
   }
 
   create () {
     super.create()
+    new Menu(this.elements.menuEl)
   }
 }
