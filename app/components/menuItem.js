@@ -36,8 +36,6 @@ export default class MenuItem {
     // Get the image URL from the imported images array
     const imagePath = images[this.inMenuPosition]
 
-    console.log(`url(${imagePath})`)
-
     this.DOM.revealImage.style.backgroundImage = `url(${imagePath})`;
     this.DOM.revealInner.appendChild(this.DOM.revealImage);
     this.DOM.reveal.appendChild(this.DOM.revealInner);

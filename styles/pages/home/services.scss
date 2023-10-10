@@ -63,7 +63,6 @@
 	display: flex;
 	align-items: center;
 	line-height: 1;
-	font-weight: bold;
   font-size: 2rem;
 	opacity: 0;
 	transform: translateX(-1rem);
@@ -100,12 +99,12 @@
 
 .service__item__sub {
 	display: none;
-	text-transform: uppercase;
-	font-weight: bold;
 	white-space: nowrap;
 	align-items: center;
+  font-size: 1.8rem;
 	position: relative;
-	margin-left: 2rem;
+  right: -7rem;
+	margin-left: -5rem;
 	padding-left: 3rem;
 	opacity: 0;
 	transform: translateX(-1rem);
@@ -137,8 +136,8 @@
 .hover-reveal {
 	position: absolute;
 	z-index: -1;
-	width: 220px;
-	height: 320px;
+	width: 27rem;
+	height: 37rem;
 	top: 0;
 	left: 0;
 	pointer-events: none;
@@ -159,4 +158,10 @@
 .hover-reveal__img {
 	background-size: cover;
 	background-position: 50% 50%;
+}
+
+@media screen and (min-width: 53em) {
+	.service__item__sub {
+		display: flex;
+	}
 }
