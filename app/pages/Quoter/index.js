@@ -39,5 +39,14 @@ export default class Quoter extends Page {
     this.elements.submit.addEventListener('click', event => {
       this.onSubmit(event)
     })
+
+    const quoterButtons = document.querySelectorAll('.quoter__button')
+
+    quoterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        button.classList.toggle('active'); // Toggle an 'active' class
+        console.log(button.firstChild.checked)
+      });
+    })
   }
 }

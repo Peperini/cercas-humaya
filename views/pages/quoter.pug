@@ -18,7 +18,7 @@ block content
               label.quoter__form__services__title=section.primary.title
               .quoter__form__services__row
                 each button in section.items
-                  .quoter__form__services__button
+                  .quoter__form__services__button.quoter__button
                     input.quoter__form__services__input(type='checkbox')
                     p.quoter__form__services__label=button.button_placeholder
 
@@ -27,7 +27,7 @@ block content
               label.quoter__form__extras__title=section.primary.title
               .quoter__form__extras__row
                 each button in section.items
-                  .quoter__form__extras__button
+                  .quoter__form__extras__button.quoter__button
                     input.quoter__form__extras__input(type='checkbox')
                     p.quoter__form__extras__label=button.button_placeholder
 
@@ -36,7 +36,7 @@ block content
               label.quoter__form__terreno__title=section.primary.title
               .quoter__form__terreno__row
                 each button in section.items
-                  .quoter__form__terreno__button
+                  .quoter__form__terreno__button.quoter__button
                     input.quoter__form__terreno__input(type='checkbox')
                     p.quoter__form__terreno__label=button.button_placeholder
 
@@ -55,7 +55,7 @@ block content
                   each form in section.items
                     .quoter__form__dimensiones__form
                       label.quoter__form__dimensiones__label=form.form_title
-                      input.quoter__form__dimensiones__input(type='form' placeholder=form.form_placeholder)
+                      input.quoter__form__dimensiones__input.quoter__form(type='form' placeholder=form.form_placeholder)
 
           if section.slice_type == 'demo_forms'
             .quoter__form__demo-forms
@@ -63,7 +63,7 @@ block content
                 each form in section.items
                   .quoter__form__demo-forms__form
                     label.quoter__form__demo-forms__label=form.form_title
-                    input.quoter__form__demo-forms__input(type='form' placeholder=form.form_placeholder)
+                    input.quoter__form__demo-forms__input.quoter__form(type='form' placeholder=form.form_placeholder)
 
         .quoter__form__button__wrapper
           input.quoter__form__submit(type='submit' value='Enviar Cotización')
