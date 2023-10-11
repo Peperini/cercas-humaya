@@ -4,6 +4,13 @@ const logger = require('morgan')
 const errorHandler = require('errorhandler')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const nodeMailer = require('nodemailer')
+
+// Mail template
+const html = `
+  <h2>Nueva cotización</h2>
+  <p>This is the body of the message and here we'll find all the information related to the new quote from a cliente</p>
+`
 
 const express = require('express')
 const app = express()
@@ -94,6 +101,31 @@ app.get('/quoter', async (req, res) => {
   const defaults = await handleRequest(api)
 
   res.render('pages/quoter', { ...defaults })
+})
+
+app.post('/formPost', (req, res) => {
+  /* console.log(req.body) // The data we get is in the body of request */
+
+  async function main() {
+    const transporter = nodeMailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'josearmando.zara@gmail.com',
+        pass: process.env.APP_PASSWORD,
+      },
+    })
+
+    const info = await transporter.sendMail({
+      from: 'Cercas Humaya <josearmando.zara@gmail.com>',
+      to: 'isamar.bobadilla@gmail.com',
+      subject: 'Testing...',
+      html: html
+    })
+
+    console.log('Message sent: ' + info.messageId)
+  }
+
+  main().catch(e => console.log(e))
 })
 
 app.listen(port, () => {

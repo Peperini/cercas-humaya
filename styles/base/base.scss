@@ -46,6 +46,12 @@ img {
   }
 }
 
-button {
+.button__primary {
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button__primary:hover {
+  background-color: $color-punch;
+  color: $color-white;
 }

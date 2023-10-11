@@ -36,9 +36,9 @@ export default class Quoter extends Page {
   }
 
   addEventListener() {
-    this.elements.submit.addEventListener('click', event => {
+    /* this.elements.submit.addEventListener('click', event => {
       this.onSubmit(event)
-    })
+    }) */
 
     const quoterButtons = document.querySelectorAll('.quoter__button')
 
