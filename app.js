@@ -6,12 +6,6 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const nodeMailer = require('nodemailer')
 
-// Mail template
-const html = `
-  <h2>Nueva cotización</h2>
-  <p>This is the body of the message and here we'll find all the information related to the new quote from a cliente</p>
-`
-
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -104,21 +98,36 @@ app.get('/quoter', async (req, res) => {
 })
 
 app.post('/formPost', (req, res) => {
-  /* console.log(req.body) // The data we get is in the body of request */
+  console.log(req.body) // The data we get is in the body of request
+
+  const services = req.body.service
+
+  // Mail template
+  const html = `
+    <h1>Nueva cotización de ${req.body.nombre}</h1>
+    <p>Teléfono: ${req.body.tel}</p>
+    <p>Correo: ${req.body.correo}</p>
+    <p>Dirección: ${req.body.dir}</p>
+    <div>
+      <h2>Servicios</h2>
+      <ul>
+        <li>
+    </div>
+  `
 
   async function main() {
     const transporter = nodeMailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'josearmando.zara@gmail.com',
-        pass: process.env.APP_PASSWORD,
+        user: process.env.GMAIL_ACCOUNT,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     })
 
     const info = await transporter.sendMail({
-      from: 'Cercas Humaya <josearmando.zara@gmail.com>',
-      to: 'isamar.bobadilla@gmail.com',
-      subject: 'Testing...',
+      from: 'Cercas Humaya <service@cercashumaya.com>',
+      to: 'josearmando.zara@gmail.com',
+      subject: 'Nueva Cotización',
       html: html
     })
 
