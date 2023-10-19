@@ -11,7 +11,7 @@ block content
           path(d="M2 27L27 2" stroke="black" stroke-width="4")
           path(d="M27 27L2 2" stroke="black" stroke-width="4")
 
-      form.quoter__popup__form(action="/formPost" method="post")
+      form.quoter__popup__form(action="/thanks" method="post")
         each section in quoter.data.body
           if section.slice_type == 'servicio'
             .quoter__form__services
@@ -63,7 +63,7 @@ block content
                 each form in section.items
                   .quoter__form__demo-forms__form
                     label.quoter__form__demo-forms__label=form.form_title
-                    input.quoter__form__demo-forms__input.quoter__form(type='form' name=form.name placeholder=form.form_placeholder)
+                    input.quoter__form__demo-forms__input.quoter__form(type='form' name=form.name placeholder=form.form_placeholder )
 
         .quoter__form__button__wrapper
           input.quoter__form__submit.button__primary(type='submit' value='Enviar Cotización')

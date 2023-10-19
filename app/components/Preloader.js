@@ -32,7 +32,7 @@ export default class Preloader extends Component {
 
     this.elements.number.innerHTML = `${percent}`
 
-    if (percent === 91) {
+    if (percent === 100) {
       this.onLoeaded()
     }
   }

@@ -36,6 +36,10 @@ const handleLinkResolver = doc => {
       return '/quoter'
   }
 
+  if (doc.type === 'thanks') {
+    return '/thanks'
+  }
+
   //Default to homepage
   return '/'
 }
@@ -97,21 +101,34 @@ app.get('/quoter', async (req, res) => {
   res.render('pages/quoter', { ...defaults })
 })
 
-app.post('/formPost', (req, res) => {
+app.post('/thanks', async (req, res) => {
+  const api = await initApi(req)
+  const defaults = await handleRequest(api)
   console.log(req.body) // The data we get is in the body of request
-
-  const services = req.body.service
 
   // Mail template
   const html = `
-    <h1>Nueva cotización de ${req.body.nombre}</h1>
+    <h1>Nueva Cotización</h1>
+    <h2>Datos de quien cotiza: </h2>
+    <p>Nombre: ${req.body.nombre}</p>
     <p>Teléfono: ${req.body.tel}</p>
     <p>Correo: ${req.body.correo}</p>
     <p>Dirección: ${req.body.dir}</p>
     <div>
       <h2>Servicios</h2>
       <ul>
-        <li>
+        <li>${req.body.service}</li>
+      </ul>
+      <h2>Extras</h2>
+      <ul>
+        <li>${req.body.extra}</li>
+      </ul>
+      <h2>Tipo de terreno</h2>
+      <ul>
+        <li>${req.body.terreno}</li>
+        <li>${req.body.metros} metros lineales</li>
+        <li>${req.body.lados} lados</li>
+      </ul>
     </div>
   `
 
@@ -133,8 +150,9 @@ app.post('/formPost', (req, res) => {
 
     console.log('Message sent: ' + info.messageId)
   }
-
   main().catch(e => console.log(e))
+
+  res.render('pages/thanks', { ...defaults })
 })
 
 app.listen(port, () => {

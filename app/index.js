@@ -2,6 +2,7 @@ import each from 'lodash/each'
 
 import Home from 'pages/Home'
 import Quoter from 'pages/Quoter'
+import Thanks from 'pages/Thanks'
 import Preloader from 'components/Preloader'
 
 class App {
@@ -29,7 +30,8 @@ class App {
   createPages () {
     this.pages = {
       home: new Home(),
-      quoter: new Quoter()
+      quoter: new Quoter(),
+      thanks: new Thanks()
     }
 
     this.page = this.pages[this.template]
