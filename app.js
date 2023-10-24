@@ -101,58 +101,80 @@ app.get('/quoter', async (req, res) => {
   res.render('pages/quoter', { ...defaults })
 })
 
+app.get('/thanks', async (req, res) => {
+  const api = await initApi(req)
+  const defaults = await handleRequest(api)
+
+  res.render('pages/thanks', { ...defaults })
+})
+
 app.post('/thanks', async (req, res) => {
   const api = await initApi(req)
   const defaults = await handleRequest(api)
-  console.log(req.body) // The data we get is in the body of request
+
+  const formData = req.body // The form data is available in the request body
+  console.log(formData)
 
   // Mail template
   const html = `
     <h1>Nueva Cotización</h1>
     <h2>Datos de quien cotiza: </h2>
-    <p>Nombre: ${req.body.nombre}</p>
-    <p>Teléfono: ${req.body.tel}</p>
-    <p>Correo: ${req.body.correo}</p>
-    <p>Dirección: ${req.body.dir}</p>
+    <p>Nombre: ${formData.nombre}</p>
+    <p>Teléfono: ${formData.tel}</p>
+    <p>Correo: ${formData.correo}</p>
+    <p>Dirección: ${formData.dir}</p>
     <div>
       <h2>Servicios</h2>
       <ul>
-        <li>${req.body.service}</li>
+        <li>${formData.service}</li>
       </ul>
       <h2>Extras</h2>
       <ul>
-        <li>${req.body.extra}</li>
+        <li>${formData.extra}</li>
       </ul>
       <h2>Tipo de terreno</h2>
       <ul>
-        <li>${req.body.terreno}</li>
-        <li>${req.body.metros} metros lineales</li>
-        <li>${req.body.lados} lados</li>
+        <li>${formData.terreno}</li>
+        <li>${formData.metros} metros lineales</li>
+        <li>${formData.lados} lados</li>
       </ul>
     </div>
   `
 
-  async function main() {
-    const transporter = nodeMailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_ACCOUNT,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    })
+  async function sendEmail() {
+    try {
+      const transporter = nodeMailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.GMAIL_ACCOUNT,
+          pass: process.env.GMAIL_APP_PASSWORD,
+        },
+      });
 
-    const info = await transporter.sendMail({
-      from: 'Cercas Humaya <service@cercashumaya.com>',
-      to: 'josearmando.zara@gmail.com',
-      subject: 'Nueva Cotización',
-      html: html
-    })
+      const info = await transporter.sendMail({
+        from: 'Cercas Humaya <service@cercashumaya.com>',
+        to: 'josearmando.zara@gmail.com',
+        subject: 'Nueva Cotización',
+        html: html,
+      });
 
-    console.log('Message sent: ' + info.messageId)
+      console.log('Message sent: ' + info.messageId);
+    } catch (e) {
+      console.log(e);
+    }
   }
-  main().catch(e => console.log(e))
 
-  res.render('pages/thanks', { ...defaults })
+  // Send the email and then call the callback function
+  sendEmail()
+    .then(() => {
+      // You can perform any additional actions here after the email is sent
+      // For example, redirect to the thanks page
+      res.render('pages/thanks', { ...defaults });
+    })
+    .catch(error => {
+      console.log('Email sending error:', error);
+      res.status(500).send('Error sending email');
+    });
 })
 
 app.listen(port, () => {

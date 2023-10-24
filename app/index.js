@@ -96,15 +96,57 @@ class App {
 
   addLinkListeners () {
     const links = document.querySelectorAll('a')
+    const forms = document.querySelectorAll('form')
 
     each(links, link => {
       link.onclick = event => {
         event.preventDefault()
 
         const { href } = link
-
+        console.log(href)
         this.onChange(href)
       }
+    })
+
+    each(forms, form => {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        // Serialize form data into a format that can be sent via AJAX
+        const formData = new FormData(form)
+        const formObject = {}
+
+        formData.forEach((value, key) => {
+          formObject[key] = value
+        })
+
+        console.log(formObject)
+
+        try {
+          // Send the form data to the server via AJAX
+          console.log(window.location.href)
+          const response = await fetch('/thanks', {
+            method: 'POST',
+            body: JSON.stringify(formObject),
+            headers: {
+              "Content-Type": "application/json",
+            }
+          })
+          console.log('after')
+
+          if (response.ok) {
+            // Handle succes or redirection here if needed
+            //window.location.href = '/thanks' // Redirect to the 'thanks' page after successful form submission
+            console.log(window.location.href)
+            this.onChange('/thanks')
+          } else {
+            // Handle errors or display a message to the user
+            console.log('Form submission failed.')
+          }
+        } catch (error) {
+          console.log('An error ocurred:', error)
+        }
+      })
     })
   }
 }
