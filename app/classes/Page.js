@@ -8,6 +8,8 @@ import Cursor from 'utils/cursor'
 import Title from 'animations/Title'
 import Paragraph from 'animations/Paragraph'
 
+import AsyncLoad from 'classes/AsyncLoad'
+
 export default class Page {
   constructor ({
     element,
@@ -19,7 +21,8 @@ export default class Page {
       ...elements,
       animationTitles: '[data-animation="title"]',
       animationParagraphs: '[data-animation="paragraph"]',
-      cursor: '.cursor'
+      cursor: '.cursor',
+      preloaders: '[data-src]'
     }
 
     this.id = id
@@ -55,6 +58,7 @@ export default class Page {
 
     this.createAnimations()
     this.createCursor()
+    this.createPreloader()
   }
 
   createCursor() {
@@ -79,6 +83,12 @@ export default class Page {
     })
 
     this.animations.push(...this.animationParagraphs)
+  }
+
+  createPreloader () {
+    this.preloader = map(this.elements.preloaders, element => {
+      return new AsyncLoad({ element })
+    })
   }
 
   show () {

@@ -33,11 +33,11 @@ export default class Preloader extends Component {
     this.elements.number.innerHTML = `${percent}`
 
     if (percent === 100) {
-      this.onLoeaded()
+      this.onLoaded()
     }
   }
 
-  onLoeaded () {
+  onLoaded () {
     return new Promise(resolve => {
       this.animateOut = GSAP.timeline({ delay: 1 })
 

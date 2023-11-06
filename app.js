@@ -72,11 +72,26 @@ const handleRequest = async api => {
       api.getSingle('quoter_end'),
     ])
 
-  /* const assets = []
+  const assets = []
 
-  home.data.gallery.forEach(item => {
-      assets.push(item.image.url)
-  }) */
+  homepage.data.body.forEach(section => {
+    if (section.slice_type === 'hero' || section.slice_type === 'history') {
+      section.items.forEach(item => {
+        assets.push(item.image.url)
+      })
+    }
+
+    if (section.slice_type === 'callout') {
+      assets.push(section.primary.image.url)
+    }
+  })
+
+  console.log(quoter.data.body)
+  quoter.data.body.forEach(section => {
+    if (section.slice_type === 'dimensiones') {
+      console.log(section)
+    }
+  })
 
   return {
     meta,

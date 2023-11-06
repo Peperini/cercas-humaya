@@ -30,8 +30,15 @@ a {
 }
 
 img {
+  opacity: 0;
+  transition: opacity 1s ease;
   vertical-align: middle;
+
+  &.loaded {
+      opacity: 1;
+  }
 }
+
 
 .content {
   @extend %cover;
