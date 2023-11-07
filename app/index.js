@@ -54,7 +54,14 @@ class App {
     this.onResize()
   }
 
-  async onChange (url) {
+  onPopSate () {
+    this.onChange({
+      url: window.location.pathname,
+      push: false
+    })
+  }
+
+  async onChange ({ url, push = true }) {
     await this.page.hide()
 
     const request = await window.fetch(url)
@@ -62,6 +69,10 @@ class App {
     if (request.status === 200) {
       const html = await request.text()
       const div = document.createElement('div')
+
+      if (push) {
+        window.history.pushState({}, '', url)
+      }
 
       div.innerHTML = html
 
@@ -100,6 +111,7 @@ class App {
   }
 
   addEventListeners () {
+    window.addEventListener('popstate', this.onPopSate.bind(this))
     window.addEventListener('resize', this.onResize.bind(this))
   }
 
@@ -112,7 +124,7 @@ class App {
         event.preventDefault()
 
         const { href } = link
-        this.onChange(href)
+        this.onChange({ url: href })
       }
     })
 
@@ -142,7 +154,7 @@ class App {
           if (response.ok) {
             // Handle succes or redirection here if needed
             //window.location.href = '/thanks' // Redirect to the 'thanks' page after successful form submission
-            this.onChange('/thanks')
+            this.onChange({ url: '/thanks' })
           } else {
             // Handle errors or display a message to the user
             console.log('Form submission failed.')
