@@ -12,7 +12,7 @@ block content
             .homepage__hero__wrapper
               .homepage__hero__cta
                 h1.homepage__hero__title(data-animation="title")=section.primary.title
-                a.cta__link(href='/quoter')
+                a.cta__link.link(href='/quoter')
                   button.homepage__hero__button.button__primary Cotizar
 
               .homepage__hero__gallery
@@ -38,7 +38,7 @@ block content
               h3.homepage__services__subtitle=section.primary.title
               .homepage__services__list
                 each service in section.items
-                  a.service__item(href="/quoter" data-image="img/1.jpg" data-animation="menu")
+                  a.service__item.link(href="/quoter" data-image="img/1.jpg" data-animation="menu")
                     span.service__item__text
                       span.service__item__textinner=service.name
                     span.service__item__sub Cotizar
@@ -48,14 +48,14 @@ block content
             .homepage__callout__wrapper(style=`background-image: url(${section.primary.image.url})`)
               .homepage__callout__cta
                 h1.homepage__callout__title(data-animation="title")=section.primary.title
-                a.cta__link(href='/quoter')
+                a.cta__link.link(href='/quoter')
                   button.homepage__callout__button.button__primary Cotizar
 
         if section.slice_type == 'contact'
           section.homepage__contact(id='contact')
             .homepage__contact__wrapper
               .homepage__contact__info
-                a.homepage__contact__office(href=section.primary.google_maps_page)
+                a.homepage__contact__office(href=section.primary.google_maps_page.url target='_blank')
                   h3.homepage__contact__office__title=section.primary.address_title
                   .homepage__contact__office__address
                     p.homepage__contact__office__address__text=section.primary.address
@@ -78,7 +78,7 @@ block content
 
                     p.homepage__contact__phone=section.primary.phone
 
-                  a.homepage__contact__whatsapp(href=section.primary.whatsapp)
+                  a.homepage__contact__whatsapp(href=section.primary.whatsapp.url target='_blank')
                     svg.homepage__contact__whatsapp__icon(xmlns="http://www.w3.org/2000/svg" width="189" height="40" viewBox="0 0 189 40" fill="none")
                       path(d="M181 0H8C3.58172 0 0 3.58172 0 8V32C0 36.4183 3.58172 40 8 40H181C185.418 40 189 36.4183 189 32V8C189 3.58172 185.418 0 181 0Z" fill="white")
                       path(fill-rule="evenodd" clip-rule="evenodd" d="M27.7463 8.94727C30.6487 8.96127 33.4497 10.1009 35.5449 12.1094C37.6905 14.1664 38.9271 16.9246 39.0352 19.8949C39.1408 22.7957 38.1281 25.6451 36.2073 27.8212C34.1006 30.2078 31.1702 31.5786 28.0052 31.6694C27.8969 31.6725 27.7886 31.6741 27.6802 31.6741C25.9748 31.6741 24.2853 31.2895 22.755 30.5532L16.8069 31.8762C16.7933 31.8788 16.7792 31.8782 16.7659 31.8743C16.7526 31.8705 16.7404 31.8635 16.7303 31.854C16.7202 31.8444 16.7125 31.8327 16.7079 31.8196C16.7032 31.8065 16.7018 31.7925 16.7036 31.7788L17.7084 25.7644C16.8509 24.1976 16.3723 22.4323 16.3207 20.6366C16.2337 17.6025 17.3334 14.7162 19.4173 12.5093C21.5779 10.2211 24.5284 8.94727 27.69 8.94727H27.7463ZM27.683 10.919C27.5921 10.919 27.5011 10.9203 27.4102 10.9229C22.2337 11.0714 18.1431 15.4036 18.2916 20.5801C18.337 22.1607 18.7823 23.7122 19.5794 25.0669L19.7524 25.3606L19.0079 29.4418L23.0466 28.4884L23.3516 28.6472C24.6823 29.3396 26.1734 29.7025 27.6799 29.7025C27.7694 29.7025 27.8591 29.7012 27.9486 29.6986C33.1252 29.5501 37.2158 25.218 37.0673 20.0415C36.9214 14.9563 32.7379 10.919 27.683 10.919ZM23.7545 14.8214C23.9444 14.8273 24.1347 14.8327 24.3007 14.8449C24.5036 14.8594 24.7282 14.8759 24.9272 15.3577C25.1634 15.9298 25.6742 17.3581 25.7411 17.503C25.808 17.6479 25.8504 17.816 25.7495 18.0036C25.6486 18.191 25.5974 18.3085 25.45 18.4707C25.3024 18.633 25.1389 18.8335 25.0069 18.9573C24.8595 19.0952 24.7063 19.2453 24.8639 19.5358C25.0214 19.8266 25.5649 20.7783 26.3894 21.5608C27.449 22.5664 28.2987 22.8982 28.6362 23.0556C28.758 23.1125 28.8592 23.1394 28.9476 23.1394C29.069 23.1394 29.1661 23.0886 29.2588 22.9946C29.4364 22.8147 29.9708 22.1911 30.1958 21.9042C30.3135 21.7541 30.4201 21.7009 30.5358 21.7009C30.6284 21.7009 30.7269 21.735 30.8419 21.7808C31.1003 21.8841 32.4809 22.6175 32.7617 22.769C33.0425 22.9204 33.2303 22.9977 33.298 23.1187C33.3656 23.2403 33.348 23.8114 33.0899 24.4704C32.8318 25.1295 31.648 25.7365 31.1237 25.7679C30.9702 25.7771 30.8192 25.7986 30.6227 25.7986C30.1476 25.7986 29.4068 25.6735 27.7241 24.9488C24.861 23.7159 23.1224 20.6863 22.9856 20.4917C22.8491 20.2968 21.8689 18.9086 21.912 17.5044C21.9551 16.1004 22.713 15.4326 22.9832 15.1551C23.2422 14.889 23.539 14.821 23.7306 14.821L23.7545 14.8214Z" fill="#103928")
@@ -96,11 +96,11 @@ block content
                     svg.homepage__contact__copyright__icon(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none") Twitter
                       path(d="M19.1666 2.50008C18.3686 3.06298 17.485 3.4935 16.5499 3.77508C16.048 3.198 15.381 2.78899 14.6391 2.60335C13.8972 2.41771 13.1162 2.46441 12.4017 2.73712C11.6871 3.00984 11.0736 3.49541 10.6441 4.12818C10.2145 4.76094 9.98967 5.51036 9.99992 6.27508V7.10841C8.53545 7.14639 7.08431 6.82159 5.77576 6.16295C4.46721 5.50431 3.34185 4.53228 2.49992 3.33341C2.49992 3.33341 -0.833415 10.8334 6.66659 14.1667C4.95036 15.3317 2.90588 15.9159 0.833252 15.8334C8.33325 20.0001 17.4999 15.8334 17.4999 6.25008C17.4992 6.01796 17.4768 5.78641 17.4333 5.55841C18.2838 4.71966 18.8839 3.66067 19.1666 2.50008Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
 
-                  a.homepage__contact__copyright__icon__link
+                  a.homepage__contact__copyright__icon__link(href=section.primary.facebook.url target='_blank')
                     svg.homepage__contact__copyright__icon(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none") Facebook
                       path(d="M14.9999 1.66675H12.4999C11.3949 1.66675 10.335 2.10573 9.55364 2.88714C8.77224 3.66854 8.33325 4.72835 8.33325 5.83341V8.33341H5.83325V11.6667H8.33325V18.3334H11.6666V11.6667H14.1666L14.9999 8.33341H11.6666V5.83341C11.6666 5.6124 11.7544 5.40044 11.9107 5.24416C12.0669 5.08788 12.2789 5.00008 12.4999 5.00008H14.9999V1.66675Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
 
-                  a.homepage__contact__copyright__icon__link
+                  a.homepage__contact__copyright__icon__link(href=section.primary.instagram.url target='_blank')
                     svg.homepage__contact__copyright__icon(xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none") Instagram
                       path(d="M14.1667 1.66675H5.83341C3.53223 1.66675 1.66675 3.53223 1.66675 5.83341V14.1667C1.66675 16.4679 3.53223 18.3334 5.83341 18.3334H14.1667C16.4679 18.3334 18.3334 16.4679 18.3334 14.1667V5.83341C18.3334 3.53223 16.4679 1.66675 14.1667 1.66675Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
                       path(d="M13.333 9.47501C13.4359 10.1685 13.3174 10.8769 12.9945 11.4992C12.6716 12.1215 12.1606 12.6262 11.5344 12.9414C10.9081 13.2566 10.1984 13.3663 9.50616 13.255C8.81395 13.1436 8.17448 12.8167 7.67871 12.321C7.18294 11.8252 6.85612 11.1857 6.74473 10.4935C6.63334 9.8013 6.74306 9.09159 7.05828 8.46532C7.3735 7.83905 7.87816 7.32812 8.5005 7.00521C9.12283 6.68229 9.83114 6.56383 10.5247 6.66667C11.2321 6.77158 11.8871 7.10123 12.3928 7.60693C12.8985 8.11263 13.2281 8.76757 13.333 9.47501Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")

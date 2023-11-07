@@ -4,17 +4,26 @@ import Home from 'pages/Home'
 import Quoter from 'pages/Quoter'
 import Thanks from 'pages/Thanks'
 import Preloader from 'components/Preloader'
+import Navigation from 'components/Navigation'
 
 class App {
   constructor() {
-    this.createPreloader()
     this.createContent()
+
+    this.createPreloader()
+    this.createNavigation()
     this.createPages()
 
     this.addEventListeners()
     this.addLinkListeners()
 
     this.update()
+  }
+
+  createNavigation () {
+    this.navigation = new Navigation({
+      template: this.template
+    })
   }
 
   createPreloader () {
@@ -95,7 +104,7 @@ class App {
   }
 
   addLinkListeners () {
-    const links = document.querySelectorAll('a')
+    const links = document.querySelectorAll('.link')
     const forms = document.querySelectorAll('form')
 
     each(links, link => {
@@ -103,7 +112,6 @@ class App {
         event.preventDefault()
 
         const { href } = link
-        console.log(href)
         this.onChange(href)
       }
     })
@@ -120,8 +128,6 @@ class App {
           formObject[key] = value
         })
 
-        console.log(formObject)
-
         try {
           // Send the form data to the server via AJAX
           console.log(window.location.href)
@@ -132,12 +138,10 @@ class App {
               "Content-Type": "application/json",
             }
           })
-          console.log('after')
 
           if (response.ok) {
             // Handle succes or redirection here if needed
             //window.location.href = '/thanks' // Redirect to the 'thanks' page after successful form submission
-            console.log(window.location.href)
             this.onChange('/thanks')
           } else {
             // Handle errors or display a message to the user

@@ -9,8 +9,9 @@ export default class Home extends Page {
       elements: {
         wrapper: '.homepage__wrapper',
         navigation: document.querySelector('.navigation'),
+        links: '.navigation__list__link',
         button: '.homepage__hero__button',
-        menuEl: '.homepage__services__list'
+        menuEl: '.homepage__services__list',
       }
      })
   }

@@ -86,15 +86,19 @@ const handleRequest = async api => {
     }
   })
 
-  console.log(quoter.data.body)
   quoter.data.body.forEach(section => {
     if (section.slice_type === 'dimensiones') {
-      console.log(section)
+      assets.push(section.primary.mesh.url)
     }
+  })
+
+  quoter_end.data.gallery.forEach(item => {
+    assets.push(item.image.url)
   })
 
   return {
     meta,
+    assets,
     navigation,
     homepage,
     quoter,

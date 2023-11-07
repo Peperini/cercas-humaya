@@ -151,6 +151,34 @@ export default class Page {
 
   addEventListeners () {
     window.addEventListener('mousewheel', this.onMouseWheelEvent)
+
+    if (this.id === 'home') {
+      this.elements.links.forEach(link => {
+        if (link.innerHTML === 'Historia') {
+          link.onclick = event => {
+            event.preventDefault()
+
+            this.scroll.target = 1250;
+          }
+        }
+
+        if (link.innerHTML === 'Servicios') {
+          link.onclick = event => {
+            event.preventDefault()
+
+            this.scroll.target = 2730;
+          }
+        }
+
+        if (link.innerHTML === 'Contacto') {
+          link.onclick = event => {
+            event.preventDefault()
+
+            this.scroll.target = 4865 ;
+          }
+        }
+      })
+    }
   }
 
   removeEventListeners () {
