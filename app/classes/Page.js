@@ -174,7 +174,7 @@ export default class Page {
           link.onclick = event => {
             event.preventDefault()
 
-            this.scroll.target = 4865 ;
+            this.scroll.target = this.scroll.limit ;
           }
         }
       })

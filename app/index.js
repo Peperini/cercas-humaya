@@ -4,26 +4,18 @@ import Home from 'pages/Home'
 import Quoter from 'pages/Quoter'
 import Thanks from 'pages/Thanks'
 import Preloader from 'components/Preloader'
-import Navigation from 'components/Navigation'
 
 class App {
   constructor() {
     this.createContent()
 
     this.createPreloader()
-    this.createNavigation()
     this.createPages()
 
     this.addEventListeners()
     this.addLinkListeners()
 
     this.update()
-  }
-
-  createNavigation () {
-    this.navigation = new Navigation({
-      template: this.template
-    })
   }
 
   createPreloader () {
