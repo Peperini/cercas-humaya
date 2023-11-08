@@ -50,9 +50,10 @@ npm start
 - Prismic (CMS)
 - GSAP
 - OGL (WebGL)
+- GLSL Shaders
 - Webpack
-- Node.js
-- Digital Ocean
+- Node
+- Vercel
 
 ## Features and Functionality
 
