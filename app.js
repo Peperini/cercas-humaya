@@ -132,7 +132,6 @@ app.post('/thanks', async (req, res) => {
   const defaults = await handleRequest(api)
 
   const formData = req.body // The form data is available in the request body
-  console.log(formData)
 
   // Mail template
   const html = `

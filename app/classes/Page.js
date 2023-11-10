@@ -135,7 +135,6 @@ export default class Page {
 
     // Calculate the difference in Y-coordinates from the previous touch
     const deltaY = this.lastTouchY - clientY
-    console.log(deltaY)
 
     // Update the scroll target based on the deltaY
     this.scroll.target += deltaY
