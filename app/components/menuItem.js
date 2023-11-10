@@ -8,7 +8,7 @@ let direction = { x: mousePosCache.x-mousepos.x, y: mousePosCache.y-mousepos.y }
 window.addEventListener('mousemove', event => mousepos = getMousePos(event))
 
 const importImages = () => {
-  const context = require.context('../../shared/img/', false, /\.(jpg|jpeg|png|gif|svg)$/);
+  const context = require.context('../../shared/', false, /\.(jpg|jpeg|png|gif|svg)$/);
   const imagePaths = context.keys().map(context);
   return imagePaths;
 };
