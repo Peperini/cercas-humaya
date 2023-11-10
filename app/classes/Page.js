@@ -28,6 +28,8 @@ export default class Page {
     this.id = id
     this.transformPrefix = Prefix('transform')
 
+    this.lastTouchY = 0; // Initialize the previous touch Y-coordinate
+
     this.onMouseWheelEvent = this.onMouseWheel.bind(this)
   }
 
@@ -122,6 +124,46 @@ export default class Page {
     })
   }
 
+  onTouchDown (event) {
+    this.lastTouchY = event.touches[0].clientY;
+    this.touchVelocity = 0;
+  }
+
+  onTouchMove (event) {
+    const touch = event.touches[0]
+    const { clientY } = touch
+
+    // Calculate the difference in Y-coordinates from the previous touch
+    const deltaY = this.lastTouchY - clientY
+    console.log(deltaY)
+
+    // Update the scroll target based on the deltaY
+    this.scroll.target += deltaY
+
+    // Update the touch velocity
+    this.touchVelocity = deltaY;
+
+    // Store the current touch Y-coordinate for the next calculation
+    this.lastTouchY = clientY
+  }
+
+  onTouchUp () {
+    // Gradually decelerate the scrolling based on the touch velocity
+    const deceleration = 0.9; // Adjust this value as needed
+
+    const animate = () => {
+      this.scroll.target += this.touchVelocity;
+      this.touchVelocity *= deceleration;
+
+      // If the velocity is still significant, continue the animation
+      if (Math.abs(this.touchVelocity) > 0.1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
+  }
+
   onMouseWheel (event) {
     const { pixelY } = normalizeWheel(event)
 
@@ -151,6 +193,9 @@ export default class Page {
 
   addEventListeners () {
     window.addEventListener('mousewheel', this.onMouseWheelEvent)
+    window.addEventListener('touchstart', this.onTouchDown.bind(this))
+    window.addEventListener('touchmove', this.onTouchMove.bind(this))
+    window.addEventListener('touchend', this.onTouchUp.bind(this))
 
     if (this.id === 'home') {
       this.elements.links.forEach(link => {
@@ -183,5 +228,8 @@ export default class Page {
 
   removeEventListeners () {
     window.removeEventListener('mousewheel', this.onMouseWheelEvent)
+    window.removeEventListener('touchstart', this.onTouchDown.bind(this))
+    window.removeEventListener('touchmove', this.onTouchMove.bind(this))
+    window.removeEventListener('touchend', this.onTouchUp.bind(this))
   }
 }
