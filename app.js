@@ -171,7 +171,7 @@ app.post('/thanks', async (req, res) => {
 
       const info = await transporter.sendMail({
         from: 'Cercas Humaya <service@cercashumaya.com>',
-        to: 'josearmando.zara@gmail.com',
+        to: 'cercashumaya@hotmail.com',
         subject: 'Nueva Cotización',
         html: html,
       });

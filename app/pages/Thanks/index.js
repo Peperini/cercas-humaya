@@ -1,7 +1,7 @@
-import Component from 'classes/Component'
+import Page from 'classes/Page'
 import GSAP from 'gsap'
 
-export default class Thanks extends Component {
+export default class Thanks extends Page {
   constructor () {
     super({
       element: '.quoter-end',
