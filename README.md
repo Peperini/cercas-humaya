@@ -2,11 +2,7 @@
 
 This repo contains the source code for the Cercas Humaya Website, a creative and interactive website I designed and deveoped for Cercas Humaya, a Mexican company focused on the safety of its clients, offering them galvanized cyclonic mesh installation services for their homes, land or any place where it is required. They also provide architectural project services, blacksmithing and home maintenance.
 
-[![Website Preview](cercas-screens.gif)](https://cercas-humaya.vercel.app/)
-
-## Demo
-
-[See it live on Vercel](https://cercas-humaya.vercel.app/)
+[See Demo](https://cercas-humaya.vercel.app/)
 
 ## Installation
 
